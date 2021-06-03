@@ -1,6 +1,3 @@
-// GetStarted - A simple responsive Startpage
-// Author: MrAlpha786 (github.con/MrAlpha786)
-
 // Username
 document.getElementById("username").innerHTML = userName;
 
@@ -74,7 +71,7 @@ function hideScrollbar(e) {
 }
 
 // Check if dark-mode is enabled
-if(localStorage.getItem('darkMode') == 'enabled'){
+if (localStorage.getItem('darkMode') == 'enabled') {
     document.body.classList.toggle("dark-mode");
 }
 
@@ -84,9 +81,9 @@ function toggleMode() {
 
     // Save mode preference to local storage
     // It will keep dark-mode persistant across browser  sessions
-    if(document.body.classList.contains("dark-mode")){
+    if (document.body.classList.contains("dark-mode")) {
         localStorage.setItem('darkMode', 'enabled');
-    }else{
+    } else {
         localStorage.setItem('darkMode', 'disabled');
     }
 }
@@ -95,13 +92,13 @@ function toggleMode() {
 var tabs = document.querySelectorAll('.tab');
 var contents = document.querySelectorAll('.content');
 
-for (let i=0; i<tabs.length; i++){
+for (let i = 0; i < tabs.length; i++) {
 
     tabs[i].innerHTML = cards[i].name;
 
     var sites = Object.keys(cards[i].bookmarks);
     //Populate content with bookmarks
-    for (let j=0; j<sites.length; j++){
+    for (let j = 0; j < sites.length; j++) {
 
         var a_link = document.createElement('a');
         a_link.innerHTML = sites[j];
@@ -111,21 +108,15 @@ for (let i=0; i<tabs.length; i++){
     }
 
     // Make tab active on mouse click
-    tabs[i].addEventListener('mouseenter', function(){
-        for (let j=0; j<tabs.length; j++){
+    tabs[i].addEventListener('mouseenter', function() {
+        for (let j = 0; j < tabs.length; j++) {
             tabs[j].classList.remove('active');
         }
         tabs[i].classList.add('active');
 
-        for (let j=0; j<contents.length; j++){
+        for (let j = 0; j < contents.length; j++) {
             contents[j].classList.remove('active');
         }
         contents[i].classList.add('active');
     })
 }
-
-
-
-
-
-
